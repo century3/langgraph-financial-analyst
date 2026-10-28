@@ -1,0 +1,19 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	plan_node(plan_node)
+	llm_call(llm_call)
+	environment(environment)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> plan_node;
+	environment --> llm_call;
+	llm_call -. &nbsp;END&nbsp; .-> __end__;
+	llm_call -.-> environment;
+	plan_node --> llm_call;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
